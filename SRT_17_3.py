@@ -32,4 +32,5 @@ def create_signal(n=8, N=1024, W=1200):
 x_n = create_signal()
 a = DFT(x_n, len(x_n))
 
+show(x_n, name="X(t)")
 show(a)
