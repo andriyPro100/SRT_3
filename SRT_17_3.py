@@ -19,7 +19,7 @@ def show(t, name="DFT"):
     plt.show()
 
 def create_signal(n=8, N=1024, W=1200):
-        """Function for create random signal"""
+        """Function for create random signal """
         x = [0 for i in range(N)]
         for i in range(N):
             for j in range(n):
