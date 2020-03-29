@@ -25,7 +25,7 @@ def show(t, name="FFT"):
     plt.plot([i for i in range(len(t))], t, color='red')
     plt.show()
 
-def create_signal(n=8, N=65536, W=1200):
+def create_signal(n=8, N=4096, W=1200):
         """Function for create random signal"""
         x = [0 for i in range(N)]
         for i in range(N):
