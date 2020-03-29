@@ -2,6 +2,8 @@ from math import sin, cos, pi
 from random import randrange
 import matplotlib.pyplot as plt
 import matplotlib as mpl
+from time import time
+from scipy.fft import fft
 
 def iexp(n):
     return complex(cos(n), sin(n))
@@ -23,7 +25,7 @@ def show(t, name="FFT"):
     plt.plot([i for i in range(len(t))], t, color='red')
     plt.show()
 
-def create_signal(n=8, N=1024, W=1200):
+def create_signal(n=8, N=65536, W=1200):
         """Function for create random signal"""
         x = [0 for i in range(N)]
         for i in range(N):
@@ -35,7 +37,12 @@ def create_signal(n=8, N=1024, W=1200):
         return [round(x[i], 3) for i in range(len(x))]
 
 x_n = create_signal()
+t1 = time()
 a = FFT(x_n, len(x_n))
-
-show(x_n, name="X(t)")
-show(a)
+t2 = time() -t1
+t3 = time()
+b = fft(x_n)
+t4 = time() -t3
+print("t1={} t2={}, обчислення виконались у {} швидше".format(round(t2,4), round(t4,4), int(t2//t4)))
+# show(x_n, name="X(t)")
+# show(a)
